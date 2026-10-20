@@ -1,0 +1,115 @@
+{
+  "themeId": "shell-interstitial",
+  "template": "interstitial",
+  "closeDelay": 5,
+  "pages": [
+    {
+      "imageUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/bg-644.jpg",
+      "title": {
+        "en": "Special offer",
+        "ar": "عرض خاص"
+      },
+      "text": {
+        "en": "Play in the cloud. Subscribe with your phone number.",
+        "ar": "العب عبر السحابة. اشترك برقم هاتفك."
+      },
+      "button": {
+        "en": "Continue",
+        "ar": "متابعة"
+      }
+    }
+  ],
+  "version": 1,
+  "description": "One full-screen interstitial. closeDelay 5 or 3 hides the close button until the countdown ends. The button opens signup. Set closeDelay to 0 to show the close button immediately.",
+  "screen": {
+    "background": {
+      "type": "color",
+      "color": "#111111",
+      "url": null,
+      "overlay": null
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 24,
+    "fontFamily": "system",
+    "fontUrl": null,
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "none",
+    "backgroundColor": null,
+    "imageUrl": null,
+    "logoUrl": null,
+    "logoAspectRatio": null,
+    "aspectRatio": null,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 100,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#0A84FF",
+    "closeColor": "#FFFFFF"
+  },
+  "field": {
+    "height": 52,
+    "background": "#FFFFFF",
+    "borderColor": "#0A84FF",
+    "borderWidth": 1,
+    "borderOpacity": 0.5,
+    "cornerRadius": 8,
+    "textColor": "#000000",
+    "placeholderColor": "#8E8E93",
+    "fontSize": 17,
+    "marginTop": 8,
+    "dialCodeColor": "#0A84FF",
+    "otpBoxBackground": "#FFFFFF",
+    "otpBoxBorderColor": "#8E8E93",
+    "otpFocusBorderColor": "#0A84FF"
+  },
+  "button": {
+    "height": 52,
+    "cornerRadius": 10,
+    "fontSize": 17,
+    "fontWeight": "semibold",
+    "textTransform": "none",
+    "textColor": "#04240F",
+    "disabledBackground": "#AEAEB2",
+    "background": {
+      "type": "solid",
+      "color": "#3DDC84",
+      "colors": []
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#E5E7EB",
+      "fontSize": 16,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "legal": {
+      "color": "#0A84FF",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#3C3C43",
+      "fontSize": 14,
+      "lineHeight": 1.6,
+      "alignment": "center"
+    }
+  },
+  "spacing": {
+    "top": 8,
+    "afterLogo": 8,
+    "afterField": 8,
+    "afterButton": 8,
+    "componentGap": 14
+  },
+  "blocks": []
+}

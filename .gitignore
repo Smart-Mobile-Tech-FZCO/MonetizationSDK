@@ -6,3 +6,7 @@ DerivedData/
 .swiftpm/configuration/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+
+# Xcode build output (example app builds into build/, including downloaded packages)
+build/
+*.xcresult

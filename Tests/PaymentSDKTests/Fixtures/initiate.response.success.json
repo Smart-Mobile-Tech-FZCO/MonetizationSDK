@@ -1,0 +1,49 @@
+{
+  "Error": 0,
+  "MessageToShow": "",
+  "SessionID": "2deaa71c-b7c2-4120-a11e-3cc1f025227f",
+  "Scheme": "error://",
+  "NextAction": {
+    "Action": 2,
+    "Title": {
+      "Name": "Laki",
+      "HeaderPic": "https://asarpluss.online/Themes/HeaderPicsLive/8251c370-bf60-4f1e-8c6a-2dc16a583e99.png"
+    },
+    "Info": {
+      "GeneralSettings": {
+        "Country": {
+          "Name": "LB",
+          "Code": "961"
+        },
+        "SupportedLanguages": [
+          "en"
+        ]
+      },
+      "Disclaimers": {
+        "headerInfo": "%3ch4+style%3d%22text-align%3a+center%22%3eEnter+your+phone+number%3c%2fh4%3e",
+        "middleInfo": "",
+        "footerInfo": "%3cbr%3e%3cbr%3e%3cfont+face%3d%22Arial%22%3eLAKITEST2%c2%a0%0ahere+will+contains+all+the+details+like+price+of+subscription+for+each+operator+example+stc%3a+3%24%2fw+or+0.5%24%2fD+%2c+you+can+unsubscribe+by+send+wa+to+1124.+Thank+you%3c%2ffont%3e",
+        "OTPTopHeaderInfo": ""
+      },
+      "Theme": {
+        "TextBox": {
+          "Text": "Phone number"
+        },
+        "Button": {
+          "Text": "Subscribe"
+        },
+        "TermsAndConditions": {
+          "Text": "Terms & Conditions",
+          "Content": "<div class=\"container\" style=\"width: 100% !important\"><div class=\"panel-heading\" style=\"background-color: #021572\"><h1 style=\"text-align: center; color: white;\">Terms And Conditions</h1></div><div class=\"panel-body\"><p>Last updated: 15 September 2020</p><p>[full HTML trimmed for the fixture]</p></div></div>"
+        },
+        "PrivacyPolicies": {
+          "Text": "Privacy Policy",
+          "Content": "<div class=\"container\" style=\"width: 100% !important\"><div class=\"panel-heading\" style=\"background-color: #021572\"><h1 style=\"text-align: center; color: white;\">Privacy Policy</h1></div><div class=\"panel-body\"><p>Last updated: May 28, 2020</p><p>[full HTML trimmed for the fixture]</p></div></div>"
+        },
+        "ThemeID": "299"
+      }
+    }
+  },
+  "SignupMethod": [],
+  "ThemeID": "299"
+}

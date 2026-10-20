@@ -1,0 +1,10 @@
+{
+  "Error": 1,
+  "MessageToShow": "Sorry, an error occurred ,you cannot subscribe to this service at this moment, please try again later.",
+  "SessionID": "",
+  "Scheme": "error://",
+  "NextAction": {
+    "Action": 7
+  },
+  "ThemeID": ""
+}

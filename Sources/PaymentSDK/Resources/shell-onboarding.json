@@ -1,0 +1,175 @@
+{
+  "themeId": "shell-onboarding",
+  "template": "onboarding",
+  "pages": [
+    {
+      "imageUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/bg-644.jpg",
+      "title": {
+        "en": "Play without a download",
+        "ar": "العب بدون تنزيل"
+      },
+      "subtitle": {
+        "en": "Cloud games on this phone",
+        "ar": "ألعاب سحابية على هذا الهاتف"
+      },
+      "text": {
+        "en": "Open a game and start. The picture, the lines below, and the button all come from this file.",
+        "ar": "افتح لعبة وابدأ. الصورة والسطور والزر كلها تأتي من هذا الملف."
+      },
+      "points": [
+        { "en": "No install and no storage", "ar": "بدون تثبيت وبدون مساحة" },
+        { "en": "One account for every title", "ar": "حساب واحد لكل الألعاب" },
+        { "en": "Pick up on another screen", "ar": "أكمل على شاشة أخرى" }
+      ],
+      "button": {
+        "en": "Next",
+        "ar": "التالي"
+      }
+    },
+    {
+      "imageUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/kaskersky-test-bg.webp",
+      "images": [
+        "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/img-769-1.webp",
+        "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/img-769-2.webp",
+        "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/img-769-3.webp",
+        "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/img-769-4.webp"
+      ],
+      "title": {
+        "en": "A library that stays current",
+        "ar": "مكتبة تبقى محدّثة"
+      },
+      "subtitle": {
+        "en": "New titles, same subscription",
+        "ar": "عناوين جديدة، نفس الاشتراك"
+      },
+      "text": {
+        "en": "Scroll the posters. Each image address is in the pages array, so a new file can replace them.",
+        "ar": "مرر الملصقات. عنوان كل صورة موجود في الصفحات، ويمكن لملف جديد أن يستبدلها."
+      },
+      "points": [
+        { "en": "Posters load from image URLs", "ar": "الملصقات تُحمّل من روابط الصور" },
+        { "en": "Titles and body are plain text", "ar": "العناوين والنص نصوص عادية" }
+      ],
+      "button": {
+        "en": "Next",
+        "ar": "التالي"
+      }
+    },
+    {
+      "imageUrl": "https://d1q75k8uguf56n.cloudfront.net/NewThemesSDK/images/bg-848.webp",
+      "title": {
+        "en": "Subscribe with your number",
+        "ar": "اشترك برقمك"
+      },
+      "subtitle": {
+        "en": "The next screen is the phone entry",
+        "ar": "الشاشة التالية لإدخال الهاتف"
+      },
+      "text": {
+        "en": "Continue opens the phone screen. The label on this button is the button text in the JSON.",
+        "ar": "متابعة تفتح شاشة الهاتف. نص هذا الزر هو نص الزر في الملف."
+      },
+      "points": [
+        { "en": "English and Arabic in each field", "ar": "الإنجليزية والعربية في كل حقل" },
+        { "en": "Empty text stays off the screen", "ar": "النص الفارغ لا يظهر على الشاشة" }
+      ],
+      "button": {
+        "en": "Continue",
+        "ar": "متابعة"
+      }
+    }
+  ],
+  "version": 1,
+  "description": "Onboarding pages. imageUrl, images, title, subtitle, text, points, and button are read from this file.",
+  "screen": {
+    "background": {
+      "type": "color",
+      "color": "#F4F1EA",
+      "url": null,
+      "overlay": null
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 24,
+    "fontFamily": "system",
+    "fontUrl": null,
+    "statusBar": "dark"
+  },
+  "header": {
+    "style": "none",
+    "backgroundColor": null,
+    "imageUrl": null,
+    "logoUrl": null,
+    "logoAspectRatio": null,
+    "aspectRatio": null,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 100,
+    "logoFallbackHeight": 72,
+    "titleColor": "#111111",
+    "languageColor": "#0A84FF",
+    "closeColor": "#8E8E93"
+  },
+  "field": {
+    "height": 52,
+    "background": "#FFFFFF",
+    "borderColor": "#0A84FF",
+    "borderWidth": 1,
+    "borderOpacity": 0.5,
+    "cornerRadius": 8,
+    "textColor": "#000000",
+    "placeholderColor": "#8E8E93",
+    "fontSize": 17,
+    "marginTop": 8,
+    "dialCodeColor": "#0A84FF",
+    "otpBoxBackground": "#FFFFFF",
+    "otpBoxBorderColor": "#8E8E93",
+    "otpFocusBorderColor": "#0A84FF"
+  },
+  "button": {
+    "height": 52,
+    "cornerRadius": 10,
+    "fontSize": 17,
+    "fontWeight": "semibold",
+    "textTransform": "none",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#AEAEB2",
+    "background": {
+      "type": "solid",
+      "color": "#111111",
+      "colors": []
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#3C3C43",
+      "fontSize": 15,
+      "lineHeight": 1.45,
+      "alignment": "leading"
+    },
+    "legal": {
+      "color": "#0A84FF",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#3C3C43",
+      "fontSize": 14,
+      "lineHeight": 1.6,
+      "alignment": "center"
+    }
+  },
+  "spacing": {
+    "top": 8,
+    "afterLogo": 8,
+    "afterField": 8,
+    "afterButton": 8,
+    "componentGap": 12
+  },
+  "blocks": []
+}

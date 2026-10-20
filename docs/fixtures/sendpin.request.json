@@ -1,0 +1,20 @@
+{
+  "DeviceInfo": {
+    "PackageName": "com.asarpluss.goldtoday--com.asarpluss.goldtoday--",
+    "DeviceID": "004FD5D9-7B47-4D73-A66A-17973C2EFCE5",
+    "LangCode": "en"
+  },
+  "Request": {
+    "SessionID": "ffebcc89-10cd-4b3f-b717-bfd4a1d2be38",
+    "TransactionID": "E75D5922-6040-4BA2-2E-6A30C14D917R",
+    "Action": "2",
+    "phn": "96171020136"
+  },
+  "NewSDK": true,
+  "Referrer": {
+    "Native": {
+      "Naming": "",
+      "Version": 2
+    }
+  }
+}

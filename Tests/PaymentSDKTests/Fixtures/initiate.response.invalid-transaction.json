@@ -1,0 +1,11 @@
+{
+  "Error": 1,
+  "MessageToShow": "Invalid TransactionID",
+  "SessionID": "",
+  "Scheme": "error://",
+  "NextAction": {
+    "Action": 7
+  },
+  "SignupMethod": [],
+  "ThemeID": "299"
+}

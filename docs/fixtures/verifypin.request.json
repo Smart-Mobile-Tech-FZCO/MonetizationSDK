@@ -1,0 +1,20 @@
+{
+  "DeviceInfo": {
+    "PackageName": "com.aitrend.nativesdk",
+    "DeviceID": "CBB7675D-9DA3-4D7C-BD7B-B0CD720E2065",
+    "LangCode": "en"
+  },
+  "Request": {
+    "SessionID": "86d35e4b-d702-4c0d-8167-9ea140cf3337",
+    "TransactionID": "0f144acfb9rb47ef9bca0368a84927ea",
+    "Action": "3",
+    "PinCode": "1234"
+  },
+  "NewSDK": true,
+  "Referrer": {
+    "Native": {
+      "Naming": "",
+      "Version": 2
+    }
+  }
+}

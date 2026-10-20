@@ -1,0 +1,96 @@
+{
+  "themeId": "644",
+  "version": 1,
+  "description": "Blacknut Cloud Gaming. Light page, curved header image, green CTA, grey form text.",
+  "screen": {
+    "background": {
+      "type": "color",
+      "color": "#FFFFFF",
+      "url": null,
+      "overlay": null
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 20,
+    "fontFamily": "Segoe UI",
+    "fontUrl": null,
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "image",
+    "backgroundColor": null,
+    "imageUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/bg-644.jpg",
+    "logoUrl": "https://d2zs7l551mi5le.cloudfront.net/NewThemesSDK/images/blacknut-global.png",
+    "logoAspectRatio": 1.74,
+    "aspectRatio": 1.5,
+    "bottomCornerRadius": 32,
+    "logoMaxHeight": 88,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#FFFFFF",
+    "closeColor": "#FFFFFF"
+  },
+  "field": {
+    "height": 50,
+    "background": "#FFFFFF",
+    "borderColor": "#D1D5DB",
+    "borderWidth": 1,
+    "borderOpacity": 0.5,
+    "cornerRadius": 10,
+    "textColor": "#575656",
+    "placeholderColor": "#575656",
+    "fontSize": 16,
+    "marginTop": 8,
+    "dialCodeColor": "#575656",
+    "otpBoxBackground": "#FFFFFF",
+    "otpBoxBorderColor": "#D1D5DB",
+    "otpFocusBorderColor": "#4CAF50"
+  },
+  "button": {
+    "height": 52,
+    "cornerRadius": 10,
+    "fontSize": 18,
+    "fontWeight": "medium",
+    "textTransform": "none",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#A5D6A7",
+    "background": {
+      "type": "solid",
+      "color": "#4CAF50",
+      "colors": []
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#575656",
+      "fontSize": 14,
+      "lineHeight": 1.4,
+      "alignment": "leading"
+    },
+    "legal": {
+      "color": "#575656",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#575656",
+      "fontSize": 14,
+      "lineHeight": 1.6,
+      "alignment": "center"
+    }
+  },
+  "spacing": {
+    "top": 10,
+    "afterLogo": 20,
+    "afterField": 16,
+    "afterButton": 10,
+    "componentGap": 10
+  },
+  "blocks": []
+}

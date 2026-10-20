@@ -1,0 +1,125 @@
+{
+  "themeId": "625",
+  "version": 1,
+  "description": "Shofha black. Black page with Inter font, full-width Shofha banner under the service logo, light borderless fields with a pink floating label, pink-to-blue gradient CTA, white disclaimers.",
+  "screen": {
+    "background": {
+      "type": "color",
+      "color": "#000000",
+      "url": null,
+      "overlay": null
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 20,
+    "fontFamily": "Inter",
+    "fontUrl": "https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap",
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "color",
+    "backgroundColor": "#000000",
+    "imageUrl": null,
+    "logoUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/shofha-new-banner-625.webp",
+    "logoAspectRatio": 1.77,
+    "aspectRatio": 3,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 88,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#FFFFFF",
+    "closeColor": "#FFFFFF"
+  },
+  "field": {
+    "height": 50,
+    "background": "#FAFAFA",
+    "borderColor": "#FAFAFA",
+    "borderWidth": 0,
+    "borderOpacity": 1,
+    "cornerRadius": 8,
+    "textColor": "#000000",
+    "placeholderColor": "#757575",
+    "fontSize": 20,
+    "marginTop": 20,
+    "dialCodeColor": "#000000",
+    "otpBoxBackground": "#FAFAFA",
+    "otpBoxBorderColor": "#D9D9D9",
+    "otpFocusBorderColor": "#B21F63",
+    "floatingLabel": {
+      "color": "#B21F63",
+      "background": "#FAFAFA",
+      "fontSize": 13,
+      "cornerRadius": 5,
+      "phoneText": { "en": "Mobile number", "ar": "رقم الهاتف" },
+      "pinText": { "en": "Pin Code", "ar": "الرمز" }
+    },
+    "placeholderText": { "phone": "_____________", "pin": "XXXXX" },
+    "icons": {
+      "phoneColor": "#464646",
+      "phoneActiveColor": "#B21F63",
+      "checkColor": "#D9D9D9",
+      "checkValidColor": "#B21F63"
+    }
+  },
+  "button": {
+    "height": 56,
+    "cornerRadius": 8,
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "textTransform": "none",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#80B21F63",
+    "background": {
+      "type": "linear",
+      "color": "#B21F63",
+      "colors": ["#B21F63", "#006994"]
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#FFFFFF",
+      "fontSize": 14,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "legal": {
+      "color": "#FFFFFF",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#FFFFFF",
+      "fontSize": 14,
+      "lineHeight": 1.6,
+      "alignment": "center"
+    }
+  },
+  "spacing": {
+    "top": 10,
+    "afterLogo": 20,
+    "afterField": 20,
+    "afterButton": 16,
+    "componentGap": 10
+  },
+  "blocks": [
+    {
+      "id": "helpdesk",
+      "type": "link",
+      "placement": "afterMiddleDisclaimer",
+      "condition": { "serviceIds": ["4586", "4253"], "country": "NL" },
+      "style": { "color": "#FFFFFF", "fontSize": 12 },
+      "items": [
+        {
+          "text": { "en": "Helpdesk", "ar": "Helpdesk" },
+          "url": "https://ma-appsfiles.s3.eu-central-1.amazonaws.com/generalfiles/shofha-helpdesk-nl.html"
+        }
+      ]
+    }
+  ]
+}

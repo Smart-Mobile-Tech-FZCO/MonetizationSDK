@@ -1,0 +1,96 @@
+{
+  "themeId": "837",
+  "version": 1,
+  "description": "Kaspersky. Full-page background image, custom Kaspersky font, white text, transparent outlined fields, teal-to-green gradient CTA.",
+  "screen": {
+    "background": {
+      "type": "image",
+      "color": "#0F1A1C",
+      "url": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/kaskersky-test-bg.webp",
+      "overlay": null
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 20,
+    "fontFamily": "Kaspersky",
+    "fontUrl": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/fonts/kaspersky.woff2",
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "none",
+    "backgroundColor": null,
+    "imageUrl": null,
+    "logoUrl": null,
+    "logoAspectRatio": 5,
+    "aspectRatio": null,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 96,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#FFFFFF",
+    "closeColor": "#FFFFFF"
+  },
+  "field": {
+    "height": 50,
+    "background": "#00000000",
+    "borderColor": "#464646",
+    "borderWidth": 1,
+    "borderOpacity": 0.5,
+    "cornerRadius": 10,
+    "textColor": "#FFFFFF",
+    "placeholderColor": "#FFFFFF",
+    "fontSize": 16,
+    "marginTop": 8,
+    "dialCodeColor": "#FFFFFF",
+    "otpBoxBackground": "#00000000",
+    "otpBoxBorderColor": "#464646",
+    "otpFocusBorderColor": "#23D1AE"
+  },
+  "button": {
+    "height": 52,
+    "cornerRadius": 10,
+    "fontSize": 18,
+    "fontWeight": "bold",
+    "textTransform": "none",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#8023D1AE",
+    "background": {
+      "type": "linear",
+      "color": "#23D1AE",
+      "colors": ["#23D1AE", "#7EFF33"]
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#FFFFFF",
+      "fontSize": 14,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "legal": {
+      "color": "#FFFFFF",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#FFFFFF",
+      "fontSize": 14,
+      "lineHeight": 1.6,
+      "alignment": "center"
+    }
+  },
+  "spacing": {
+    "top": 20,
+    "afterLogo": 20,
+    "afterField": 16,
+    "afterButton": 15,
+    "componentGap": 10
+  },
+  "blocks": []
+}

@@ -1,0 +1,41 @@
+{
+  "Error": 0,
+  "MessageToShow": "OK",
+  "SessionID": "ffebcc89-10cd-4b3f-b717-bfd4a1d2be38",
+  "Scheme": "error://",
+  "NextAction": {
+    "Action": 3,
+    "Info": {
+      "Disclaimers": {
+        "headerInfo": "%3cp+style%3d%22text-align%3a+center%22%3eActivate+your+account%3c%2fp%3e%0d+%3cp+style%3d%22text-align%3a+center%22%3e%3cspan%3eThe+code+should+arrive+within+the+next+60+seconds.%3cbr%3e+It+was+sent+to+0710-20136%3c%2fspan%3e%3c%2fp%3e",
+        "middleInfo": "",
+        "footerInfo": "%3cfont+face%3d%22Arial%22%3ehere+the+disclaimer+for+pin+verification+page%3cbr%3e%3c%2ffont%3e%3cspan+style%3d%22font-family%3a+Arial%3bwhite-space-collapse%3a+preserve-breaks%22%3ehere+will+contains+all+the+details+like+price+of+subscription+for+each+operator+example+stc%3a+3%24%2fw+or+0.5%24%2fD+for+mtc+and+alpha+operator+%2c+you+can+unsubscribe+by+send+w%3c%2fspan%3e%3cspan+style%3d%22font-family%3a+Arial%3bwhite-space-collapse%3a+preserve-breaks%22%3ea+to+1124.%3c%2fspan%3e%3cfont+face%3d%22Arial%22%3e%3c%2ffont%3e"
+      },
+      "Theme": {
+        "AskCodeAgain": {
+          "Text": "Resend pin",
+          "CountDown": 60
+        },
+        "WrongNumber": {
+          "Text": "Wrong number?"
+        },
+        "TextBox": {
+          "ErrorMSG": " Please enter the correct PIN.",
+          "Length": 5,
+          "PinLength": [
+            5
+          ],
+          "isNumeric": 1,
+          "Text": ""
+        },
+        "Button": {
+          "Text": "Confirm"
+        }
+      }
+    },
+    "Title": {
+      "HeaderPic": "https://asarpluss.online/Themes/HeaderPicsLive/b78c9afa-0bcd-4b4d-93ce-5ce744bfcbdd.png"
+    }
+  },
+  "ThemeID": ""
+}

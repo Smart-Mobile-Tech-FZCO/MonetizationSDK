@@ -1,0 +1,142 @@
+{
+  "themeId": "813",
+  "version": 1,
+  "description": "Dark purple animated radial background, white header text, form on a white rounded card, light rounded field, dark gradient uppercase CTA, auto-rotating banner carousel above the form.",
+  "screen": {
+    "background": {
+      "type": "color",
+      "color": "#200E35",
+      "colors": ["#200E35", "#54288A", "#1B253B"],
+      "url": null,
+      "overlay": null
+    },
+    "contentMaxWidth": 400,
+    "horizontalPadding": 10,
+    "fontFamily": "system",
+    "fontUrl": null,
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "none",
+    "backgroundColor": null,
+    "imageUrl": null,
+    "logoUrl": null,
+    "logoAspectRatio": null,
+    "aspectRatio": null,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 90,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#FFFFFF",
+    "closeColor": "#FFFFFF"
+  },
+  "formCard": {
+    "background": "#FFFFFF",
+    "borderColor": "#F3F4F6",
+    "borderWidth": 2,
+    "cornerRadius": 16,
+    "padding": 20,
+    "marginTop": 48,
+    "shadowColor": "#40000000",
+    "shadowRadius": 50,
+    "shadowY": 25
+  },
+  "field": {
+    "height": 64,
+    "background": "#F9FAFB",
+    "borderColor": "#DEDEDE",
+    "borderWidth": 2,
+    "borderOpacity": 1,
+    "cornerRadius": 18,
+    "textColor": "#000000",
+    "placeholderColor": "#757575",
+    "fontSize": 16,
+    "marginTop": 30,
+    "dialCodeColor": "#000000",
+    "otpBoxBackground": "#F9FAFB",
+    "otpBoxBorderColor": "#DEDEDE",
+    "otpFocusBorderColor": "#54288A"
+  },
+  "button": {
+    "height": 56,
+    "cornerRadius": 16,
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "textTransform": "uppercase",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#80200E35",
+    "background": {
+      "type": "linear",
+      "color": "#200E35",
+      "colors": ["#200E35", "#1B253B"]
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#CC0F0F23",
+      "fontSize": 14,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "legal": {
+      "color": "#000000",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#F3E8FF",
+      "fontSize": 16,
+      "lineHeight": 1.6,
+      "alignment": "leading"
+    }
+  },
+  "spacing": {
+    "top": 20,
+    "afterLogo": 24,
+    "afterField": 25,
+    "afterButton": 20,
+    "componentGap": 10
+  },
+  "blocks": [
+    {
+      "id": "carousel",
+      "type": "imageCarousel",
+      "placement": "beforeForm",
+      "intervalSeconds": 4,
+      "style": {
+        "aspectRatio": 2.363,
+        "cornerRadius": 16,
+        "marginTop": 24,
+        "contentMode": "fit",
+        "shadowColor": "#40000000"
+      },
+      "items": [
+        {
+          "imageUrl": {
+            "en": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-2.webp",
+            "ar": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-4.webp"
+          }
+        },
+        {
+          "imageUrl": {
+            "en": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-1M$.png",
+            "ar": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-1M$-ar.png"
+          }
+        },
+        {
+          "imageUrl": {
+            "en": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-1.webp",
+            "ar": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/banner-813-3.webp"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "themeId": "858",
+  "version": 1,
+  "description": "Sorastream cloud gaming. Looping background video under a dark purple wash, light rounded fields, teal radial CTA, 2x2 advantages grid below the form.",
+  "screen": {
+    "background": {
+      "type": "video",
+      "color": "#200E35",
+      "url": "https://d21as39bximhir.cloudfront.net/NewThemesSDK/images/sorastream-video.mp4",
+      "overlay": "#99171029"
+    },
+    "contentMaxWidth": 520,
+    "horizontalPadding": 20,
+    "fontFamily": "system",
+    "fontUrl": null,
+    "statusBar": "light"
+  },
+  "header": {
+    "style": "none",
+    "backgroundColor": null,
+    "imageUrl": null,
+    "logoUrl": null,
+    "logoAspectRatio": null,
+    "aspectRatio": null,
+    "bottomCornerRadius": 0,
+    "logoMaxHeight": 88,
+    "logoFallbackHeight": 72,
+    "titleColor": "#FFFFFF",
+    "languageColor": "#FFFFFF",
+    "closeColor": "#FFFFFF"
+  },
+  "field": {
+    "height": 64,
+    "background": "#F9FAFB",
+    "borderColor": "#DEDEDE",
+    "borderWidth": 2,
+    "borderOpacity": 1,
+    "cornerRadius": 18,
+    "textColor": "#000000",
+    "placeholderColor": "#757575",
+    "fontSize": 16,
+    "marginTop": 8,
+    "dialCodeColor": "#000000",
+    "otpBoxBackground": "#F9FAFB",
+    "otpBoxBorderColor": "#DEDEDE",
+    "otpFocusBorderColor": "#00C499"
+  },
+  "button": {
+    "height": 56,
+    "cornerRadius": 16,
+    "fontSize": 20,
+    "fontWeight": "bold",
+    "textTransform": "uppercase",
+    "textColor": "#FFFFFF",
+    "disabledBackground": "#80007BA7",
+    "background": {
+      "type": "radial",
+      "color": "#007BA7",
+      "colors": ["#007BA7", "#00C499"]
+    }
+  },
+  "text": {
+    "disclaimer": {
+      "color": "#E2E2E2",
+      "fontSize": 14,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "legal": {
+      "color": "#E2E2E2",
+      "fontSize": 12,
+      "lineHeight": 1.4,
+      "alignment": "center"
+    },
+    "error": {
+      "color": "#FFFFFF",
+      "background": "#E53935",
+      "fontSize": 13,
+      "cornerRadius": 12
+    },
+    "serviceDescription": {
+      "color": "#F3E8FF",
+      "fontSize": 16,
+      "lineHeight": 1.6,
+      "alignment": "leading"
+    }
+  },
+  "spacing": {
+    "top": 50,
+    "afterLogo": 48,
+    "afterField": 25,
+    "afterButton": 20,
+    "componentGap": 10
+  },
+  "blocks": [
+    {
+      "id": "advantages",
+      "type": "cardGrid",
+      "columns": 2,
+      "style": {
+        "cardCornerRadius": 12,
+        "cardMinHeight": 184,
+        "cardOverlayColors": ["#338A33DE", "#264D2C94"],
+        "iconBackgroundColors": ["#007BA7", "#00C499"],
+        "iconColor": "#FFFFFF",
+        "titleColor": "#FFFFFF",
+        "titleFontSize": 13,
+        "textColor": "#E0FFFFFF",
+        "textFontSize": 11,
+        "gap": 10
+      },
+      "items": [
+        {
+          "icon": "cloud",
+          "title": { "en": "No downloads", "ar": "بدون تنزيلات" },
+          "text": {
+            "en": "All games are in the cloud and updated to their latest version.",
+            "ar": "جميع الألعاب في السحابة ومحدثة لأحدث إصدار."
+          }
+        },
+        {
+          "icon": "devices",
+          "title": { "en": "On any device", "ar": "على أي جهاز" },
+          "text": {
+            "en": "Play any game on your mobile, tablet, PC, and TV.",
+            "ar": "العب أي لعبة على هاتفك أو جهازك اللوحي أو الكمبيوتر أو التلفزيون."
+          }
+        },
+        {
+          "icon": "unlimited",
+          "title": { "en": "Unlimited sessions", "ar": "جلسات غير محدودة" },
+          "text": {
+            "en": "Forget about interruptions, enjoy sessions without limits.",
+            "ar": "انسَ الانقطاعات، استمتع بجلسات بلا حدود."
+          }
+        },
+        {
+          "icon": "hd",
+          "title": { "en": "60 FPS / High Definition", "ar": "٦٠ إطارًا في الثانية / دقة عالية" },
+          "text": {
+            "en": "Enjoy the most optimal gameplay and HD quality in all games.",
+            "ar": "استمتع بأفضل أداء للعب وجودة HD في جميع الألعاب."
+          }
+        }
+      ]
+    }
+  ]
+}
