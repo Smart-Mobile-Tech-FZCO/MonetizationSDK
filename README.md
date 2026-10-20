@@ -197,7 +197,35 @@ The SDK ships its own privacy manifest (`PrivacyInfo.xcprivacy`). It declares th
 
 ## Example app
 
-`Example/PaymentSDKExample1/` in this repository is a working host app. Open `PaymentSDKExample1.xcodeproj` and run the `PaymentSDKExample1` scheme on an iOS simulator. It shows launch mode, both presentation APIs, one button per shell, and the last result.
+`Example/PaymentSDKExample1/` in this repository is a working host app. It shows launch mode, both presentation APIs, one button per shell, and the last result.
+
+**Run it from Xcode:**
+
+```sh
+git clone https://github.com/Smart-Mobile-Tech-FZCO/PaymentSDK-iOS.git
+cd PaymentSDK-iOS
+open Example/PaymentSDKExample1/PaymentSDKExample1.xcodeproj
+```
+
+In Xcode, choose the **PaymentSDKExample1** scheme and an iPhone simulator in the toolbar, then press **⌘R**. The first build takes a minute while Xcode downloads PhoneNumberKit.
+
+**Or run it from the terminal** (replace `iPhone 17` with a simulator you have; `xcrun simctl list devices available` lists them):
+
+```sh
+xcodebuild -project Example/PaymentSDKExample1/PaymentSDKExample1.xcodeproj \
+  -scheme PaymentSDKExample1 \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
+  -derivedDataPath build build
+open -a Simulator 2>/dev/null || open -a DeviceHub   # DeviceHub replaces Simulator in Xcode 27+
+xcrun simctl boot 'iPhone 17' 2>/dev/null || true
+xcrun simctl install booted build/Build/Products/Debug-iphonesimulator/PaymentSDKExample1.app
+xcrun simctl launch booted "$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' \
+  build/Build/Products/Debug-iphonesimulator/PaymentSDKExample1.app/Info.plist)"
+```
+
+`booted` means the running simulator; if several are running, shut the others down first (`xcrun simctl shutdown all`, then boot one).
+
+The example opens the SDK as soon as it launches, with the interstitial shell. Close it to reach the buttons. It uses this repository as a local package, so close any other Xcode window that has the PaymentSDK package open first; otherwise Xcode shows the dependency as missing.
 
 ## More
 
