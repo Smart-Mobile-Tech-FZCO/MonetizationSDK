@@ -3,19 +3,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "PaymentSDK",
+    name: "MonetizationSDK",
     platforms: [
         .iOS(.v15),
     ],
     products: [
-        .library(name: "PaymentSDK", targets: ["PaymentSDK"]),
+        .library(name: "MonetizationSDK", targets: ["MonetizationSDK"]),
     ],
     dependencies: [
         .package(url: "https://github.com/PhoneNumberKit/PhoneNumberKit", from: "5.0.0"),
     ],
     targets: [
         .target(
-            name: "PaymentSDK",
+            name: "MonetizationSDK",
             dependencies: [
                 .product(name: "PhoneNumberKit", package: "PhoneNumberKit"),
             ],
@@ -27,8 +27,8 @@ let package = Package(
             ]
         ),
         .testTarget(
-            name: "PaymentSDKTests",
-            dependencies: ["PaymentSDK"],
+            name: "MonetizationSDKTests",
+            dependencies: ["MonetizationSDK"],
             resources: [
                 .copy("Fixtures"),
             ],

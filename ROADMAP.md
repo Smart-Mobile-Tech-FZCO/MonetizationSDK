@@ -1,6 +1,6 @@
 # Roadmap
 
-The plan for PaymentSDK, and the rules for changing it. **Any AI assistant (Claude Code or other) or contributor working in this repository must read and follow this file before changing anything.**
+The plan for MonetizationSDK, and the rules for changing it. **Any AI assistant (Claude Code or other) or contributor working in this repository must read and follow this file before changing anything.**
 
 When this file and a request disagree, stop and ask the project owner. Don't guess.
 
@@ -16,7 +16,7 @@ When this file and a request disagree, stop and ask the project owner. Don't gue
 
 ### Public API and compatibility
 
-6. **The public API stays small.** Don't add, rename or remove anything `public` without the owner's approval. Everything not in `Sources/PaymentSDK/Public/` is `internal`.
+6. **The public API stays small.** Don't add, rename or remove anything `public` without the owner's approval. Everything not in `Sources/MonetizationSDK/Public/` is `internal`.
 7. **Don't break host apps.** A breaking public change needs approval and a new major version.
 8. **Minimum iOS 15, Swift 5.9, Swift Package Manager only.** Don't raise the minimum or add CocoaPods or Carthage support without approval.
 
@@ -28,7 +28,7 @@ When this file and a request disagree, stop and ask the project owner. Don't gue
 ### Backend contract
 
 11. **Every request follows the envelope in ARCHITECTURE.md exactly.** `Action` is a string. Every request gets a new `TransactionID`. A stored `SessionID` is never replaced with an empty one, and Initiate never sends one.
-12. **Never call the live backend from tests.** Use fixtures. A wire-format change needs a real captured sample added to `Tests/PaymentSDKTests/Fixtures/` first.
+12. **Never call the live backend from tests.** Use fixtures. A wire-format change needs a real captured sample added to `Tests/MonetizationSDKTests/Fixtures/` first.
 
 ### Privacy and security
 
@@ -60,7 +60,7 @@ When this file and a request disagree, stop and ask the project owner. Don't gue
 A change is done when:
 
 - [ ] It does what was asked, and nothing more.
-- [ ] `xcodebuild test -scheme PaymentSDK -destination 'platform=iOS Simulator,name=<iPhone>'` passes.
+- [ ] `xcodebuild test -scheme MonetizationSDK -destination 'platform=iOS Simulator,name=<iPhone>'` passes.
 - [ ] The example app builds, and UI changes were checked on a simulator.
 - [ ] README, ARCHITECTURE, CHANGELOG and this file are still true.
 - [ ] No new public API, dependency or data collection without approval.
@@ -84,14 +84,14 @@ Approved, but blocked until the listed input exists.
 A second backend call, made before the payment Initiate, that controls the SDK remotely.
 
 - **What it decides:** whether the SDK opens on app launch, and which shell to show.
-- **Without a dashboard URL:** the SDK shows the interstitial shell (`PaymentShell.fallback`), as it does today.
-- **Code hook:** `BundledThemeProvider.forcedThemeID`, set in `PaymentPresenter.makeCoordinator`. The dashboard's answer replaces the shell passed by the host.
+- **Without a dashboard URL:** the SDK shows the interstitial shell (`MonetizationShell.fallback`), as it does today.
+- **Code hook:** `BundledThemeProvider.forcedThemeID`, set in `MonetizationPresenter.makeCoordinator`. The dashboard's answer replaces the shell passed by the host.
 - **Blocked on:** the dashboard doesn't exist yet. Needed before starting:
   - [ ] Endpoint URL, method, request body, and a real response sample.
   - [ ] Field names for "open on launch" and "shell".
   - [ ] What happens without a dashboard URL: open the interstitial on launch automatically, or follow the host's `isOnLaunch`?
   - [ ] Whether the dashboard chooses only the shell (the payment `ThemeID` keeps colours and fonts) or the whole theme.
-  - [ ] Whether `PaymentSDK.present(shell:)` stays public once the dashboard exists.
+  - [ ] Whether `MonetizationSDK.present(shell:)` stays public once the dashboard exists.
 
 ## Later
 
@@ -105,7 +105,7 @@ Planned, not approved to build yet.
 
 Not approved. Add new ideas here, with the date. Don't build them.
 
-- 2026-10-20: Rename the module from the generic `PaymentSDK` to a branded name, to avoid clashing with another package's module in host apps. Breaking: must happen before host apps adopt the SDK, or in a major version.
+- 2026-10-20: Rename the module from the generic `MonetizationSDK` to a branded name, to avoid clashing with another package's module in host apps. Breaking: must happen before host apps adopt the SDK, or in a major version.
 - 2026-10-20: Run the tests in CI on every push.
 
 ## Open questions
@@ -116,3 +116,4 @@ Unknown backend behaviour. Handle it defensively in code, and don't build on gue
 - What does `NextAction` 7 mean beyond "error"? It's treated as an error that falls back to the retry screen after 3 in a row.
 - Will `Scheme` and `SignupMethod` be used?
 - Which package names does the backend accept? Unregistered bundle IDs get `Error` 1 on Initiate.
+- How should `NextAction` 4 be handled? Since 2026-10-29, Initiate for `com.aitrend.nativesdk` returns `Error` 0 with `NextAction.Action` 4, a `NextAction.URL` (`https://he.mobibox.mobi?sessionId=…`) and a new top-level `header` object (bar text "ad", a "close" button, a loader with `timer` "10000"). It looks like "open this URL in a web view with that bar", but the expected behaviour and how the flow ends are unknown. The SDK doesn't support it yet and shows its generic retry screen.

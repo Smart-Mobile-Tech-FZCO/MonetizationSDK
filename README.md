@@ -1,6 +1,6 @@
-# PaymentSDK for iOS
+# MonetizationSDK for iOS
 
-PaymentSDK adds a phone-number subscription flow to your iOS app. It shows a full-screen, themed flow (an optional intro screen, then phone number, then PIN), talks to the subscription backend for you, and tells your app the result. It works from SwiftUI and UIKit.
+MonetizationSDK adds a phone-number subscription flow to your iOS app. It shows a full-screen, themed flow (an optional intro screen, then phone number, then PIN), talks to the subscription backend for you, and tells your app the result. It works from SwiftUI and UIKit.
 
 - iOS 15 or later, Swift 5.9 or later, Xcode 15 or later
 - Swift Package Manager only
@@ -15,20 +15,20 @@ PaymentSDK adds a phone-number subscription flow to your iOS app. It shows a ful
 **In Xcode:** File → Add Package Dependencies… → paste the repository URL:
 
 ```
-https://github.com/Smart-Mobile-Tech-FZCO/PaymentSDK-iOS.git
+https://github.com/Smart-Mobile-Tech-FZCO/MonetizationSDK.git
 ```
 
-Choose **Up to Next Major Version** from `1.0.0`, then add the **PaymentSDK** library to your app target.
+Choose **Up to Next Major Version** from `1.0.0`, then add the **MonetizationSDK** library to your app target.
 
 **Or in `Package.swift`:**
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Smart-Mobile-Tech-FZCO/PaymentSDK-iOS.git", from: "1.0.0"),
+    .package(url: "https://github.com/Smart-Mobile-Tech-FZCO/MonetizationSDK.git", from: "1.0.0"),
 ],
 targets: [
     .target(name: "MyApp", dependencies: [
-        .product(name: "PaymentSDK", package: "PaymentSDK-iOS"),
+        .product(name: "MonetizationSDK", package: "MonetizationSDK"),
     ]),
 ]
 ```
@@ -37,18 +37,18 @@ If the repository is private, add a GitHub account with access to it in Xcode �
 
 ## 2. Configure it once at startup
 
-Call `PaymentSDK.configure` once, as early as possible. Everything except the result handler has a default.
+Call `MonetizationSDK.configure` once, as early as possible. Everything except the result handler has a default.
 
 **SwiftUI:**
 
 ```swift
-import PaymentSDK
+import MonetizationSDK
 import SwiftUI
 
 @main
 struct MyApp: App {
     init() {
-        PaymentSDK.configure(PaymentSDKConfiguration(isOnLaunch: true)) { result in
+        MonetizationSDK.configure(MonetizationConfiguration(isOnLaunch: true)) { result in
             // See "4. Handle the result"
         }
     }
@@ -62,11 +62,11 @@ struct MyApp: App {
 **UIKit:**
 
 ```swift
-import PaymentSDK
+import MonetizationSDK
 
 func application(_ application: UIApplication,
                  didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    PaymentSDK.configure(PaymentSDKConfiguration(isOnLaunch: true)) { result in
+    MonetizationSDK.configure(MonetizationConfiguration(isOnLaunch: true)) { result in
         // See "4. Handle the result"
     }
     return true
@@ -76,10 +76,10 @@ func application(_ application: UIApplication,
 ### Configuration
 
 ```swift
-PaymentSDKConfiguration(
+MonetizationConfiguration(
     isOnLaunch: false,          // true: the SDK opens by itself when the app starts
     packageName: nil,           // nil: your app's bundle identifier
-    referrer: PaymentReferrer(
+    referrer: MonetizationReferrer(
         naming: "",             // campaign naming
         idOffer: -1,            // offer ID
         deeplink: "",           // deeplink that brought the user in
@@ -94,7 +94,7 @@ PaymentSDKConfiguration(
 | `isOnLaunch` | `false` | Opens the SDK automatically once, when the app starts. |
 | `packageName` | your bundle ID | The package name sent to the backend. It must be registered there. |
 | `referrer` | naming `""`, idOffer `-1`, deeplink `""`, country `nil` | Attribution values sent with every request. |
-| `isLoggingEnabled` | `false` | Console logs prefixed `[PaymentSDK]`. PIN codes and full phone numbers are never logged. |
+| `isLoggingEnabled` | `false` | Console logs prefixed `[MonetizationSDK]`. PIN codes and full phone numbers are never logged. |
 | `initiateURL` | `https://asarpluss.online` | Backend for starting a session. Only change it if the backend team tells you to. |
 | `apiURL` | `https://d31e0jpxlj21ku.cloudfront.net` | Backend for sending and verifying the PIN. Only change it if told to. |
 
@@ -109,9 +109,9 @@ You have three ways to show it. Pick one per entry point.
 **From UIKit, whenever you want:**
 
 ```swift
-PaymentSDK.present()                         // from the top-most view controller
-PaymentSDK.present(from: someViewController) // from a specific one
-PaymentSDK.present(shell: .onboarding)       // with a specific intro style (see below)
+MonetizationSDK.present()                         // from the top-most view controller
+MonetizationSDK.present(from: someViewController) // from a specific one
+MonetizationSDK.present(shell: .onboarding)       // with a specific intro style (see below)
 ```
 
 **From SwiftUI, with a binding:**
@@ -122,7 +122,7 @@ struct PaywallButton: View {
 
     var body: some View {
         Button("Subscribe") { showPayment = true }
-            .paymentSDK(isPresented: $showPayment) { result in
+            .monetizationSDK(isPresented: $showPayment) { result in
                 // Result of this presentation only
             }
     }
@@ -150,7 +150,7 @@ Launch mode and the SwiftUI modifier always use the default, `.interstitial`. A 
 Your handler receives exactly one result per presentation, on the main thread, after the SDK has closed.
 
 ```swift
-PaymentSDK.configure(config) { result in
+MonetizationSDK.configure(config) { result in
     switch result {
     case .subscribed:
         // The user confirmed the PIN. Unlock the content.
@@ -168,19 +168,19 @@ PaymentSDK.configure(config) { result in
 
 | Error | Cause | Fix |
 |---|---|---|
-| `.notConfigured` | `present` or `.paymentSDK` was used before `configure`. | Call `configure` at startup. |
+| `.notConfigured` | `present` or `.monetizationSDK` was used before `configure`. | Call `configure` at startup. |
 | `.noPresentingViewController` | No visible view controller to present from. | Call `present` once your UI is on screen, or pass `from:`. |
 
 Network errors, wrong PINs and backend errors are not reported to your app. The SDK handles them on screen with a message or a **Try again** button.
 
-Where results go: presentations started by `present` or by launch mode report to the handler passed to `configure`. Presentations started by `.paymentSDK` report to the modifier's own `onResult`.
+Where results go: presentations started by `present` or by launch mode report to the handler passed to `configure`. Presentations started by `.monetizationSDK` report to the modifier's own `onResult`.
 
 ## Checklist
 
 - [ ] Your bundle ID (or the `packageName` you pass) is registered with the backend.
 - [ ] `configure` runs once at startup, before any `present`.
 - [ ] Your handler unlocks content for both `.subscribed` and `.alreadySubscribed`.
-- [ ] You tested on a simulator or device with logging on and saw `[PaymentSDK] ← Action 1 Error=0` in the console.
+- [ ] You tested on a simulator or device with logging on and saw `[MonetizationSDK] ← Action 1 Error=0` in the console.
 
 ## Troubleshooting
 
@@ -197,35 +197,35 @@ The SDK ships its own privacy manifest (`PrivacyInfo.xcprivacy`). It declares th
 
 ## Example app
 
-`Example/PaymentSDKExample1/` in this repository is a working host app. It shows launch mode, both presentation APIs, one button per shell, and the last result.
+`Example/MonetizationSDKExample/` in this repository is a working host app. It shows launch mode, both presentation APIs, one button per shell, and the last result.
 
 **Run it from Xcode:**
 
 ```sh
-git clone https://github.com/Smart-Mobile-Tech-FZCO/PaymentSDK-iOS.git
-cd PaymentSDK-iOS
-open Example/PaymentSDKExample1/PaymentSDKExample1.xcodeproj
+git clone https://github.com/Smart-Mobile-Tech-FZCO/MonetizationSDK.git
+cd MonetizationSDK
+open Example/MonetizationSDKExample/MonetizationSDKExample.xcodeproj
 ```
 
-In Xcode, choose the **PaymentSDKExample1** scheme and an iPhone simulator in the toolbar, then press **⌘R**. The first build takes a minute while Xcode downloads PhoneNumberKit.
+In Xcode, choose the **MonetizationSDKExample** scheme and an iPhone simulator in the toolbar, then press **⌘R**. The first build takes a minute while Xcode downloads PhoneNumberKit.
 
 **Or run it from the terminal** (replace `iPhone 17` with a simulator you have; `xcrun simctl list devices available` lists them):
 
 ```sh
-xcodebuild -project Example/PaymentSDKExample1/PaymentSDKExample1.xcodeproj \
-  -scheme PaymentSDKExample1 \
+xcodebuild -project Example/MonetizationSDKExample/MonetizationSDKExample.xcodeproj \
+  -scheme MonetizationSDKExample \
   -destination 'platform=iOS Simulator,name=iPhone 17' \
   -derivedDataPath build build
 open -a Simulator 2>/dev/null || open -a DeviceHub   # DeviceHub replaces Simulator in Xcode 27+
 xcrun simctl boot 'iPhone 17' 2>/dev/null || true
-xcrun simctl install booted build/Build/Products/Debug-iphonesimulator/PaymentSDKExample1.app
+xcrun simctl install booted build/Build/Products/Debug-iphonesimulator/MonetizationSDKExample.app
 xcrun simctl launch booted "$(/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' \
-  build/Build/Products/Debug-iphonesimulator/PaymentSDKExample1.app/Info.plist)"
+  build/Build/Products/Debug-iphonesimulator/MonetizationSDKExample.app/Info.plist)"
 ```
 
 `booted` means the running simulator; if several are running, shut the others down first (`xcrun simctl shutdown all`, then boot one).
 
-The example opens the SDK as soon as it launches, with the interstitial shell. Close it to reach the buttons. It uses this repository as a local package, so close any other Xcode window that has the PaymentSDK package open first; otherwise Xcode shows the dependency as missing.
+The example opens the SDK as soon as it launches, with the interstitial shell. Close it to reach the buttons. It uses this repository as a local package, so close any other Xcode window that has the MonetizationSDK package open first; otherwise Xcode shows the dependency as missing.
 
 ## More
 

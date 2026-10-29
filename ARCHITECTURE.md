@@ -1,10 +1,10 @@
 # Architecture
 
-How PaymentSDK works inside. Read this before changing the code. For integrating the SDK, see [README.md](README.md). For what may be built next and the rules for changing anything, see [ROADMAP.md](ROADMAP.md).
+How MonetizationSDK works inside. Read this before changing the code. For integrating the SDK, see [README.md](README.md). For what may be built next and the rules for changing anything, see [ROADMAP.md](ROADMAP.md).
 
 ## Overview
 
-PaymentSDK is one Swift package with one library product and module, `PaymentSDK`. It targets iOS 15+ and has one dependency, PhoneNumberKit.
+MonetizationSDK is one Swift package with one library product and module, `MonetizationSDK`. It targets iOS 15+ and has one dependency, PhoneNumberKit.
 
 A presentation is one full-screen modal that runs a server-driven flow:
 
@@ -14,12 +14,12 @@ Initiate (Action "1") ──► [intro pages] ──► phone screen ──► s
                          result to host ◄── verifyPin (Action "3") ◄── PIN screen
 ```
 
-The backend decides which screen comes next (`NextAction.Action`) and supplies the texts, header image, country and legal HTML. The SDK supplies the visual theme from bundled JSON files and handles errors on screen. The host app gets exactly one `PaymentResult` per presentation.
+The backend decides which screen comes next (`NextAction.Action`) and supplies the texts, header image, country and legal HTML. The SDK supplies the visual theme from bundled JSON files and handles errors on screen. The host app gets exactly one `MonetizationResult` per presentation.
 
 ## Source layout
 
 ```
-Sources/PaymentSDK/
+Sources/MonetizationSDK/
   Public/       The whole public API. Nothing else is public.
   Flow/         Presentation, the state machine, and screen content.
   Networking/   Request envelope, response model, HTTP client.
@@ -27,7 +27,7 @@ Sources/PaymentSDK/
   Theme/        Theme files: decoding, tokens, shell templates, fonts.
   UI/           SwiftUI views and the hosting controller.
   Resources/    Bundled theme JSONs and PrivacyInfo.xcprivacy.
-Tests/PaymentSDKTests/
+Tests/MonetizationSDKTests/
   Fixtures/     Real backend requests and responses, used as test data.
   Support/      Stub API client and test helpers.
 Example/        Host app for manual testing (Xcode project).
@@ -38,18 +38,18 @@ docs/           API contract (Postman), original fixtures, original build spec.
 
 | Type | Role |
 |---|---|
-| `PaymentSDK` | `configure(_:onResult:)` and `present(from:shell:)`. `@MainActor`. |
-| `PaymentSDKConfiguration`, `PaymentReferrer` | Everything the host can set. All fields have defaults. |
-| `PaymentShell` | `.single`, `.onboarding`, `.interstitial`. `PaymentShell.fallback` is `.interstitial`. |
-| `PaymentResult`, `PaymentSDKError` | The outcome. `.failed` is only for integration errors. |
-| `View.paymentSDK(isPresented:onResult:)` | SwiftUI entry point. Calls the presenter. |
+| `MonetizationSDK` | `configure(_:onResult:)` and `present(from:shell:)`. `@MainActor`. |
+| `MonetizationConfiguration`, `MonetizationReferrer` | Everything the host can set. All fields have defaults. |
+| `MonetizationShell` | `.single`, `.onboarding`, `.interstitial`. `MonetizationShell.fallback` is `.interstitial`. |
+| `MonetizationResult`, `MonetizationError` | The outcome. `.failed` is only for integration errors. |
+| `View.monetizationSDK(isPresented:onResult:)` | SwiftUI entry point. Calls the presenter. |
 
 Keep this surface small. Adding a public symbol is an API change and needs approval (see ROADMAP.md).
 
 ## Flow layer (`Flow/`)
 
-**`PaymentPresenter`** (singleton, `@MainActor`) owns the configuration, the default result handler, and the single active presentation.
-- `present` builds the object graph for one session (logger, `DeviceInfoProvider`, `PaymentAPI`, `BundledThemeProvider`, `FlowCoordinator`), wraps it in a `PaymentHostingController`, presents it, and starts the flow.
+**`MonetizationPresenter`** (singleton, `@MainActor`) owns the configuration, the default result handler, and the single active presentation.
+- `present` builds the object graph for one session (logger, `DeviceInfoProvider`, `PaymentAPI`, `BundledThemeProvider`, `FlowCoordinator`), wraps it in a `MonetizationHostingController`, presents it, and starts the flow.
 - Launch mode (`isOnLaunch`) observes scene, window and app activation notifications and presents once, when a foreground-active scene has a key window whose top view controller is in the hierarchy. It retries briefly (up to 20 × 0.1 s) while the root controller is attached.
 - `topMostViewController()` walks presented, navigation and tab controllers.
 
@@ -113,8 +113,8 @@ A **theme file** is a JSON in `Resources/`. It has required token sections (`scr
 
 ## UI (`UI/`)
 
-- **`PaymentHostingController`** is a full-screen `UIHostingController` that can't be swiped away and follows the theme's status bar style.
-- **`PaymentRootView`** switches on `flow.screen` and injects the theme and language into the environment.
+- **`MonetizationHostingController`** is a full-screen `UIHostingController` that can't be swiped away and follows the theme's status bar style.
+- **`MonetizationRootView`** switches on `flow.screen` and injects the theme and language into the environment.
 - **Screens:** `LoadingView`, `RetryView`, `IntroPagesView` (onboarding pages or the interstitial with its countdown), `PhoneScreen` and `PinScreen`, both built on `FormScreen`.
 - **`ThemedComponents`** has the shared pieces: backgrounds (color, gradient, image, looping video), buttons, fields, error banner, remote images with a cache.
 - **`ThemeBlocksView`** renders optional theme blocks: links, image carousel, card grid, logo row, FAQ, image grid.
@@ -128,21 +128,21 @@ Strict concurrency checking is on for both targets. The presenter, the coordinat
 
 ## Testing
 
-- XCTest in `Tests/PaymentSDKTests`. Tests never call the live backend. `StubAPIClient` replays the captured responses in `Fixtures/`.
+- XCTest in `Tests/MonetizationSDKTests`. Tests never call the live backend. `StubAPIClient` replays the captured responses in `Fixtures/`.
 - They cover request encoding (exact keys, `Action` as a string, no `SessionID` on Initiate), SessionID reuse, TransactionID uniqueness, DeviceInfo, response decoding for every fixture, disclaimer decoding, the coordinator's decision table, and theme and shell selection.
 
 ```sh
-xcodebuild -scheme PaymentSDK -destination 'generic/platform=iOS Simulator' build
-xcodebuild test -scheme PaymentSDK -destination 'platform=iOS Simulator,name=<an available iPhone>'
+xcodebuild -scheme MonetizationSDK -destination 'generic/platform=iOS Simulator' build
+xcodebuild test -scheme MonetizationSDK -destination 'platform=iOS Simulator,name=<an available iPhone>'
 ```
 
 `swift build` alone targets macOS and fails, because the SDK uses UIKit.
 
-The example app (`Example/PaymentSDKExample1`) uses this repository as a local package. Close other Xcode windows that have the package open before opening it.
+The example app (`Example/MonetizationSDKExample`) uses this repository as a local package. Close other Xcode windows that have the package open before opening it.
 
 ## Adding a bundled theme
 
-1. Copy a file in `Sources/PaymentSDK/Resources/`, for example `644.json`, to `<ThemeID>.json`. The file name must be exactly the ID the backend sends.
+1. Copy a file in `Sources/MonetizationSDK/Resources/`, for example `644.json`, to `<ThemeID>.json`. The file name must be exactly the ID the backend sends.
 2. Edit the tokens. A file missing a required section is rejected and falls back to `default-theme`.
 3. For intro pages, set `template`, `pages` and, for an interstitial, `closeDelay`. Copy the shape from `shell-onboarding.json` or `shell-interstitial.json`. Page texts are localized objects: `{ "en": "…", "ar": "…" }`.
 4. Add the ID to `testEveryBundledThemeDecodes` in `ThemeSelectionTests` and run the tests. `Resources/` is processed automatically, so `Package.swift` doesn't change.

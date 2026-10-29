@@ -1,6 +1,6 @@
 # Changelog
 
-Core changes to PaymentSDK, by version. Only changes that matter to apps integrating the SDK or to its roadmap are listed: new capabilities, API changes, behaviour changes and important fixes. Internal refactors and small fixes are not.
+Core changes to MonetizationSDK, by version. Only changes that matter to apps integrating the SDK or to its roadmap are listed: new capabilities, API changes, behaviour changes and important fixes. Internal refactors and small fixes are not.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/): a major version for breaking public API changes, a minor version for new features, a patch version for fixes.
 
@@ -15,9 +15,9 @@ First release.
 ### Added
 
 - Phone-number subscription flow: Initiate, then phone number (sendPin), then PIN (verifyPin), driven by the backend's `NextAction`.
-- Public API: `PaymentSDK.configure(_:onResult:)`, `PaymentSDK.present(from:shell:)`, the SwiftUI modifier `.paymentSDK(isPresented:onResult:)`, `PaymentSDKConfiguration`, `PaymentReferrer`, `PaymentResult` and `PaymentSDKError`.
+- Public API: `MonetizationSDK.configure(_:onResult:)`, `MonetizationSDK.present(from:shell:)`, the SwiftUI modifier `.monetizationSDK(isPresented:onResult:)`, `MonetizationConfiguration`, `MonetizationReferrer`, `MonetizationResult` and `MonetizationError`.
 - Two launch modes: automatic presentation at app launch (`isOnLaunch: true`) or on demand.
-- Three intro shells, selectable per presentation with `PaymentShell`: `.interstitial` (default), `.onboarding` and `.single`.
+- Three intro shells, selectable per presentation with `MonetizationShell`: `.interstitial` (default), `.onboarding` and `.single`.
 - Bundled themes with server-driven texts, header image, country lock and legal HTML (Terms and Privacy).
 - On-screen error handling: inline errors with retry, a full-screen "Try again" for failed sessions. Only integration errors reach the host as `.failed`.
 - Stable device ID stored in the Keychain, device-language detection with right-to-left layout, configurable referrer values.
